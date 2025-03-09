@@ -22,3 +22,26 @@ void initializeMatrix(int matrix[N][N]) {
         }
     }
 }
+
+int main() {
+    srand(time(NULL));
+    int A[N][N], B[N][N], C[N][N];
+    initializeMatrix(A);
+    initializeMatrix(B);
+
+    double total_time = 0.0;
+    int runs = 10;
+
+    for (int i = 0; i < runs; i++) {
+        clock_t start = clock();
+        matrixComputation(A, B, C);
+        clock_t end = clock();
+
+        double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
+        total_time += time_taken;
+        printf("Run %d: %f seconds\n", i + 1, time_taken);
+    }
+
+    printf("\nAverage Execution Time: %f seconds\n", total_time / runs);
+    return 0;
+}
