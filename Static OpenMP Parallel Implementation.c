@@ -1,12 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+<<<<<<< HEAD
 #include <omp.h> 
 #define N 500  
 #define THREADS 8
 
 void matrixComputation(int A[N][N], int B[N][N], int C[N][N]) {
     #pragma omp parallel for schedule(static) collapse(2) 
+=======
+#include <omp.h> // Include OpenMP header
+#define N 500  // Matrix size
+#define THREADS 8 // Number of threads (adjust as needed)
+
+void matrixComputation(int A[N][N], int B[N][N], int C[N][N]) {
+    #pragma omp parallel for schedule(static) collapse(2) //Parallelizing outer loo
+>>>>>>> static
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             C[i][j] = 0;
@@ -19,7 +28,11 @@ void matrixComputation(int A[N][N], int B[N][N], int C[N][N]) {
 void initializeMatrix(int matrix[N][N]) {
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
+<<<<<<< HEAD
             matrix[i][j] = rand() % 10; 
+=======
+            matrix[i][j] = rand() % 10; // Assign a random value (0-9)
+>>>>>>> static
         }
     }
 }
