@@ -2,9 +2,13 @@
 #include <stdlib.h>
 #include <time.h>
 #include <omp.h>
-#define N 500  
+#define Size 500
+#define N 3  
 #define THREADS 4 
+#define Run 10
+
 void matrixComputation(int A[N][N], int B[N][N], int C[N][N]) {
+    // Function to perform matrix multiplication using OpenMP with dynamic scheduling
     #pragma omp parallel for schedule(dynamic) collapse(2) 
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
