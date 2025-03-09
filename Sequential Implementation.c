@@ -14,3 +14,11 @@ void matrixComputation(int A[N][N], int B[N][N], int C[N][N]) {
         }
     }
 }
+
+void initializeMatrix(int matrix[N][N]) {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            matrix[i][j] = rand() % 10;  // Random values between 0-9
+        }
+    }
+}
