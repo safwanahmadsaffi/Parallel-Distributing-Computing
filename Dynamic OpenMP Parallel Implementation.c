@@ -25,3 +25,25 @@ void initializeMatrices(int A[Size][Size], int B[Size][Size]) {
         }
     }
 }
+int main() {
+    int A[Size][Size], B[Size][Size], C[Size][Size];
+    initializeMatrices(A, B);  // Initialize matrices with random values
+
+    double total_time = 0;
+
+    for (int r = 0; r < Run; r++) {
+        double start = omp_get_wtime();  // Start timing
+        ParallelMatrixMultiplication(A, B, C);
+        double end = omp_get_wtime();  // End timing
+
+        double iteration_time = end - start;  // Compute execution time for this run
+        total_time += iteration_time;  // Accumulate total time
+
+        printf("Run %d: Execution Time = %f seconds\n", r + 1, iteration_time);
+    }
+
+    double avg_time = total_time / Run;
+    printf("\nAverage Execution Time over %d runs: %f seconds\n", Run, avg_time);
+
+    return 0;
+}
