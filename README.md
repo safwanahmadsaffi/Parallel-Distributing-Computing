@@ -68,5 +68,4 @@ The program records execution times for each approach and provides insights into
 This project is licensed under the MIT License.
 
 ## Author
-[Your Name]
-
+MUHAMMAD SAFWAN AHMAD SAFFI - 1207
